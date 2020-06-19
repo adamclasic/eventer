@@ -3,6 +3,8 @@
 <%= form_with(model: @user, local: true) do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username, placeholer: 'username', id:"username"%><br><br>
+    <%= f.label :password %>
+
     <%= f.password_field :password, placeholer: 'password', id:"password"%><br><br>
     <%= f.submit 'sign up' %>
 <% end %>
