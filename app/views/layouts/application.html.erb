@@ -12,9 +12,17 @@
   <body>
   <% flash.each do |type, msg| %>
   <div>
-    <%= msg %>
+    <p>
+      <%= msg %>
+    </p>
   </div>
 <% end %>
+    <%if session[:username]%>
+      <%= link_to  "sign out", signout_path, method: :delete %>
+    <%else%>
+      <%= link_to  "sign in", signin_path %>
+
+    <%end%>
     <%= yield %>
   </body>
 </html>
