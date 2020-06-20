@@ -4,12 +4,14 @@ class SessionsController < ApplicationController
     end
 
     def create
-        user = User.find_by(username: params[:user][:username])
+        user = User.find_by(username: params[:session][:username])
         if user
             session[:user_id] = user
+            flash.now[:alert] = 'U R Signed in!'
             redirect_to user
+
         else
-            flash.now[:alert] = 'Not a user!'
+            flash.now[:alert] = "User not found! #{user}."
             render 'new'
         end
     end

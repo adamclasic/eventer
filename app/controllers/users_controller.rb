@@ -5,7 +5,13 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        @user.save
+
+        if @user.save
+            redirect_to signin_path
+        else
+            flash.now[:alert] = 'something went wrong!'
+        end
+        
     end
 
     def show
