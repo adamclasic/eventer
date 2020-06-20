@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:session][:username])
         if user
             session[:username] = user.username
+            session[:user_id] = user.id
             flash[:alert] = 'U R Signed in!'
             redirect_to user
 
@@ -20,6 +21,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session[:username] = nil
+        session[:user_id] = nil
         flash[:alert] = "You've been sinned out!."
 
         redirect_to signin_path
