@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 
     end
 
-    def show
+    def index
         @all_events = Event.all
 
     end
