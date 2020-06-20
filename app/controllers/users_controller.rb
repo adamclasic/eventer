@@ -10,11 +10,11 @@ class UsersController < ApplicationController
 
     def show
         @all_users = User.all
-
     end
     
     def user_params
 
         params.require(:user).permit(:username, :password)
     end
+
 end

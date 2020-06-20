@@ -1,4 +1,4 @@
-<h1>sign up</h1>
+<h1>sign in</h1>
 
 <%= form_with(model: @user, local: true) do |f| %>
     <%= f.label :username %>
@@ -6,5 +6,5 @@
     <%= f.label :password %>
 
     <%= f.password_field :password, placeholer: 'password', id:"password"%><br><br>
-    <%= f.submit 'sign up' %>
+    <%= f.submit 'sign in' %>
 <% end %>
