@@ -1,0 +1,11 @@
+<h1>Create Event</h1>
+
+<%= form_with(model: @event, local: true) do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, placeholer: 'Title of Event' %><br>
+    <%= f.label :description %><br>
+    <%= f.text_area :description, placeholer: 'Description of Event' %><br>
+    <%= f.label :date %><br>
+    <%= f.date_field :date, placeholer: 'Date of Event' %><br>
+    <%= f.submit 'Create Event', id:'create' %>
+<% end %>
