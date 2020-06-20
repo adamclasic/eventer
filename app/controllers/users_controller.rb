@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 
     def show
         @all_users = User.all
+        @current_user_events = User.find_by(username: session[:username]).events
+
     end
     
     def user_params

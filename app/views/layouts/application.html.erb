@@ -10,13 +10,14 @@
   </head>
 
   <body>
-  <% flash.each do |type, msg| %>
-  <div>
-    <p>
-      <%= msg %>
-    </p>
-  </div>
-<% end %>
+    <% flash.each do |type, msg| %>
+      <div>
+        <p>
+          <%= msg %>
+        </p>
+      </div>
+    <% end %>
+
     <%if session[:username]%>
       <%= link_to  "sign out", signout_path, method: :delete %>
     <%else%>
