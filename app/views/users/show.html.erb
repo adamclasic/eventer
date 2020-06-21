@@ -5,7 +5,7 @@
 <%end %>
 
 <%= link_to  "show all events", events_path %> </br>
-<%= link_to  "show your events", users_path %> </br>
+<%= link_to  "show your events", user_path(session[:user_id].to_i) %> </br>
 <%= link_to  "Create an event", new_event_path %>
 
 
