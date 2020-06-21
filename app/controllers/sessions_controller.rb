@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by(username: params[:session][:username])
         if user
-            # session[:username] = user.username
-            # session[:user_id] = user.id
+            session[:username] = user.username
+            session[:user_id] = user.id
             login(user)
             flash[:alert] = 'U R Signed in!'
             redirect_to user

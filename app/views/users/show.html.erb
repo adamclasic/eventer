@@ -1,9 +1,21 @@
-<%if session[:user_id] == params[:id]%>
-<h1>Welcom back  <%= session[:user_name].capitalize  %> </h1>
+<%if session[:user_id].to_s == params[:id].to_s %>
+    <h1>Welcom back  <%= session[:username].capitalize  %> </h1>
 <%else%>
-<h1><%= @one_user.username.capitalize  %>'s profile. </h1>
+    <h1><%= @one_user.username.capitalize  %>'s profile. </h1>
 <%end %>
 
 <%= link_to  "show all events", events_path %> </br>
 <%= link_to  "show your events", users_path %>
 
+
+<%if session[:user_id].to_s == params[:id].to_s %>
+    <h1> Events created by you: </h1>
+<%else%>
+    <h1>Events created by <%= @one_user.username.capitalize  %>: </h1>
+<%end %>
+
+<% @one_user.events.each do |event|%>
+    <p> title: <%= link_to event.title, event_path(event.id)%></p>
+    <p> description: <%= event.description%>.</p>
+    <p> date: <%= event.date%></p></br>
+<% end %>
