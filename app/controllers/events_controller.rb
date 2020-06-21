@@ -12,7 +12,7 @@ class EventsController < ApplicationController
             flash[:notice] = 'event created succefuly'
             redirect_to user_path(session[:user_id])
         else
-            flash.now[:alert] = "something went wrong! #{event_params}"
+            flash.now[:alert] =  @event.errors.messages || "something went wrong!"
             render 'new'
         end
 

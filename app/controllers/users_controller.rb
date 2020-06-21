@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to signin_path
         else
-            flash.now[:alert] = 'something went wrong!'
+            flash.now[:alert] = @user.errors.messages || 'something went wrong!'
             render 'new'
         end
         

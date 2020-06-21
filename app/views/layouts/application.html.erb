@@ -12,11 +12,23 @@
   <body>
     <% flash.each do |type, msg| %>
       <div>
-        <p>
+        <p class=<%= type %>>
+        <%if msg.is_a?(Hash)%>
+          <% msg.each do |key, val|%>
+            <% unless val[0].nil? %>
+              <%= key %>
+              <%= val[0] %></br>
+            <%end%>
+          <%end%>
+
+        <%else%>
           <%= msg %>
+          </br>
+        <%end%>
         </p>
       </div>
     <% end %>
+
 
     <%if session[:username]%>
       <%= link_to  "sign out", signout_path, method: :delete %>
