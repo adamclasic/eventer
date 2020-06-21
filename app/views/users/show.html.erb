@@ -5,13 +5,14 @@
 <%end %>
 
 <%= link_to  "show all events", events_path %> </br>
-<%= link_to  "show your events", users_path %>
+<%= link_to  "show your events", users_path %> </br>
+<%= link_to  "Create an event", new_event_path %>
 
 
 <%if session[:user_id].to_s == params[:id].to_s %>
-    <h1> Events created by you: </h1>
+    <h1> <%= @one_user.events.length  %> events created by you: </h1>
 <%else%>
-    <h1>Events created by <%= @one_user.username.capitalize  %>: </h1>
+    <h1><%= @one_user.events.length  %> events created by <%= @one_user.username.capitalize  %>: </h1>
 <%end %>
 
 <% @one_user.events.each do |event|%>

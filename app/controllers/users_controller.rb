@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # before_action :auth, only: ['index']
+    before_action :auth, except: [:new, :create]
 
     def new
         @user = User.new

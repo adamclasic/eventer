@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
-    before_action :auth, only: ['new', 'create']
+    before_action :auth, exept: [:new, :create, :index]
+
     def new
         @event = Event.new
     end
