@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    # before_action :auth, only: ['index']
+
     def new
         @user = User.new
     end
@@ -15,6 +17,9 @@ class UsersController < ApplicationController
     end
 
     def show
+    end
+
+    def index
         @all_users = User.all
         @current_user_events = User.find_by(username: session[:username]).events
 

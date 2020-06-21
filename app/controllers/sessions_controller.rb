@@ -16,8 +16,6 @@ class SessionsController < ApplicationController
             flash.now[:alert] = "User not found! #{user}."
             render 'new'
         end
-
-        
     end
 
     def destroy
