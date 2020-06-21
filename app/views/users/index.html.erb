@@ -1,7 +1,7 @@
-<h2>User : <%= session[:username] %> has created <%= @current_user_events.length %> events</h2>
+<h2> <%= session[:username].capitalize %> you have created <%= @current_user_events.length %> events</h2>
 <%= link_to  "Create an event", new_event_path %>
 <% @current_user_events.each do |event|%>
-    <p> event: <%= event.title%></p>
+    <p> event: <%= link_to event.title, event_path(event.id)%></p>
     <p> event: <%= event.description%></p>
     <p> event: <%= event.date%></p>
 <% end %>

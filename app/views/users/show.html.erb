@@ -1,3 +1,9 @@
-<h1>Welcom back</h1>
+<%if session[:user_id] == params[:id]%>
+<h1>Welcom back  <%= session[:user_name].capitalize  %> </h1>
+<%else%>
+<h1><%= @one_user.username.capitalize  %>'s profile. </h1>
+<%end %>
+
 <%= link_to  "show all events", events_path %> </br>
 <%= link_to  "show your events", users_path %>
+
