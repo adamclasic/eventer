@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     def index
         @all_events = Event.all
         @all_users = User.all
-        @current_user_events = User.find_by(username: session[:username]).events
+        @current_user_events = User.find_by(username: session[:username]).createdevents
 
     end
     

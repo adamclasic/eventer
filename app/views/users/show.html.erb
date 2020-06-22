@@ -11,12 +11,12 @@
 
 
 <%if session[:user_id].to_s == params[:id].to_s %>
-    <h1> <%= @one_user.events.length  %> events created by you: </h1>
+    <h1> <%= @one_user.createdevents.length  %> events created by you: </h1>
 <%else%>
-    <h1><%= @one_user.events.length  %> events created by <%= @one_user.username.capitalize  %>: </h1>
+    <h1><%= @one_user.createdevents.length  %> events created by <%= @one_user.username.capitalize  %>: </h1>
 <%end %>
 
-<% @one_user.events.each do |event|%>
+<% @one_user.createdevents.each do |event|%>
     <p> title: <%= link_to event.title, event_path(event.id)%></p>
     <p> description: <%= event.description%>.</p>
     <p> date: <%= event.date%></p></br>
