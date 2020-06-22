@@ -4,5 +4,6 @@
     <p> title: <%= link_to event.title, event_path(event.id) %></p>
     <p> Description: <%= event.description%></p>
     <p> Date: <%= event.date%></p>
-    <p> Created by: <%= link_to event.creator.username, user_path(event.creator.id)%></p><br>
+    <p> Created by: <%= link_to event.creator.username, user_path(event.creator.id)%></p>
+    <p> Attendees: <%= link_to event.attendees.length, event_path(event.id)%></p><br>
 <% end %>
