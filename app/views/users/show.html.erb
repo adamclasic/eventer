@@ -11,9 +11,9 @@
 
 
 <%if session[:user_id].to_s == params[:id].to_s %>
-    <h1> <%= @one_user.createdevents.length  %> events created by you: </h1>
+    <h1> <%= @one_user.createdevents.length  %> <%= 'event'.pluralize(@one_user.createdevents.length.to_i) %> created by you: </h1>
 <%else%>
-    <h1><%= @one_user.createdevents.length  %> events created by <%= @one_user.username.capitalize  %>: </h1>
+    <h1><%= @one_user.createdevents.length  %> <%= 'event'.pluralize(@one_user.createdevents.length.to_i) %> created by <%= @one_user.username.capitalize  %>: </h1>
 <%end %>
 
 <% @one_user.createdevents.each do |event|%>
@@ -23,9 +23,9 @@
 <% end %>
 
 <%if session[:user_id].to_s == params[:id].to_s %>
-    <h1> <%= @one_user.goingevents.length  %> events you're going to: </h1>
+    <h1> <%= @one_user.goingevents.length  %> <%= 'event'.pluralize(@one_user.createdevents.length.to_i) %> you're going to: </h1>
 <%else%>
-    <h1><%= @one_user.goingevents.length  %> events <%= @one_user.username.capitalize  %> is going to: </h1>
+    <h1><%= @one_user.goingevents.length  %> <%= 'event'.pluralize(@one_user.createdevents.length.to_i) %> <%= @one_user.username.capitalize  %> is going to: </h1>
 <%end %>
 
 <% @one_user.goingevents.each do |event|%>
