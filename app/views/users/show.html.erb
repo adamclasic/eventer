@@ -21,3 +21,17 @@
     <p> description: <%= event.description%>.</p>
     <p> date: <%= event.date%></p></br>
 <% end %>
+
+<%if session[:user_id].to_s == params[:id].to_s %>
+    <h1> <%= @one_user.goingevents.length  %> events you're going to: </h1>
+<%else%>
+    <h1><%= @one_user.goingevents.length  %> events <%= @one_user.username.capitalize  %> is going to: </h1>
+<%end %>
+
+<% @one_user.goingevents.each do |event|%>
+    <p> title: <%= link_to event.title, event_path(event.id)%></p>
+    <p> description: <%= event.description%>.</p>
+    <p> date: <%= event.date%></p>
+    <p> created by: <%= link_to event.creator.username, user_path(event.creator.id)%></p></br>
+               
+<% end %>
