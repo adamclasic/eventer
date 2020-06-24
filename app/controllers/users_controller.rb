@@ -19,12 +19,14 @@ class UsersController < ApplicationController
 
     def show
         @one_user = User.find(params[:id])
+        @upcoming_events = @one_user.goingevents.upcoming_events
+        @prev_events = @one_user.goingevents.previous_events
     end
 
     def index
         @all_events = Event.all
         @all_users = User.all
-        @current_user_events = User.find_by(username: session[:username]).events
+        @current_user_events = User.find_by(username: session[:username]).createdevents
 
     end
     

@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     end
 
     def create
-        @event = User.find(session[:user_id]).events.build(event_params)
+        @event = User.find(session[:user_id]).createdevents.build(event_params)
         if @event.save
             flash[:notice] = 'event created succefuly'
             redirect_to user_path(session[:user_id])
@@ -20,6 +20,8 @@ class EventsController < ApplicationController
 
     def index
         @all_events = Event.all
+        @upcoming_events = Event.all.upcoming_events
+        @prev_events = Event.all.previous_events
     end
 
     def show

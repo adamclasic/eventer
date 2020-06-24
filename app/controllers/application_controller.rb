@@ -22,5 +22,12 @@ class ApplicationController < ActionController::Base
         def auth
             redirect_to signin_path, alert: 'You must login to access that page' unless logged_in?
         end
-    
+
+        def attending?(user_id, event_id)
+            attending = Attendee.where(:user_id => user_id, :event_id => event_id)
+        end
+
+        # def pending?(id)
+        #     pending = Invitation.where(:user_id => user_id, :event_id => event_id)
+        # end
 end

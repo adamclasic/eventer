@@ -3,5 +3,5 @@
 <%= link_to  "Create an event", new_event_path %>
 <% @all_users.each do |user| %>
     <p> name: <%= link_to user.username, user_path(user.id)%></p>
-    <p> events created: <%= link_to user.events.length, user_path(user.id)%></p></br>
+    <p> events created: <%= link_to user.createdevents.length, user_path(user.id)%></p></br>
 <% end %>
