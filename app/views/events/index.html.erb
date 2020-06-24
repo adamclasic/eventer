@@ -1,0 +1,30 @@
+<h2>all Events</h2>
+<% @all_events.each do |event|%>
+    <p> Event id: <%= link_to event.id, event_path(event.id)%></p>
+    <p> title: <%= link_to event.title, event_path(event.id) %></p>
+    <p> Description: <%= event.description%></p>
+    <p> Date: <%= event.date%></p>
+    <p> Created by: <%= link_to event.creator.username, user_path(event.creator.id)%></p>
+    <p> Attendees: <%= link_to event.attendees.length, event_path(event.id)%></p><br>
+<% end %>
+<h2>upcomming Events:</h2>
+
+<% @upcoming_events.each do |event|%>
+    <p> Event id: <%= link_to event.id, event_path(event.id)%></p>
+    <p> title: <%= link_to event.title, event_path(event.id) %></p>
+    <p> Description: <%= event.description%></p>
+    <p> Date: <%= event.date%></p>
+    <p> Created by: <%= link_to event.creator.username, user_path(event.creator.id)%></p>
+    <p> Attendees: <%= link_to event.attendees.length, event_path(event.id)%></p><br>
+<% end %>
+
+<h2>previous Events:</h2>
+
+<% @prev_events.each do |event|%>
+    <p> Event id: <%= link_to event.id, event_path(event.id)%></p>
+    <p> title: <%= link_to event.title, event_path(event.id) %></p>
+    <p> Description: <%= event.description%></p>
+    <p> Date: <%= event.date%></p>
+    <p> Created by: <%= link_to event.creator.username, user_path(event.creator.id)%></p>
+    <p> Attendees: <%= link_to event.attendees.length, event_path(event.id)%></p><br>
+<% end %>

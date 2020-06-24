@@ -1,0 +1,16 @@
+<%= link_to  "Create an event", new_event_path %>
+<h2><%= @one_event.title %> details:</h2>
+
+<p> title: <%= @one_event.title%></p>
+<p> description: <%= @one_event.description%></p>
+<p> date: <%= @one_event.date%></p>
+<p> creator: <%= link_to @one_event.creator.username, user_path(@one_event.creator.id)%></p>
+
+<p> <%= 'attendee'.pluralize(@one_event.attendees.length.to_i) %>: <%= @one_event.attendees.length%></p>
+
+<h1> <%= @one_event.attendees.length %> <%= 'attendee'.pluralize(@one_event.attendees.length.to_i) %>: </h1>
+
+<% @one_event.attendees.each do |user|%>
+    <p> user: <%= link_to user.username, user_path(user.id)%></p>
+               
+<% end %>

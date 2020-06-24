@@ -1,0 +1,13 @@
+<h1>sign in</h1>
+<p>
+  No account yet? <%= link_to "Sign up!", new_user_path %>
+</p>
+
+<%= form_with(scope: :session, url: signin_path, local: true) do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username, placeholer: 'username', id:"username"%><br><br>
+    <%= f.label :password %>
+
+    <%= f.password_field :password, placeholer: 'password', id:"password"%><br><br>
+    <%= f.submit 'sign in' %>
+<% end %>

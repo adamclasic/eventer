@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eventer</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <p class=<%= type %>>
+        <%if msg.is_a?(Hash)%>
+          <% msg.each do |key, val|%>
+            <% unless val[0].nil? %>
+              <%= key %>
+              <%= val[0] %></br>
+            <%end%>
+          <%end%>
+
+        <%else%>
+          <%= msg %>
+          </br>
+        <%end%>
+        </p>
+      </div>
+    <% end %>
+
+
+    <%if session[:username]%>
+      <%= link_to  "sign out", signout_path, method: :delete %>
+    <%else%>
+      <%= link_to  "sign in", signin_path %>
+
+    <%end%>
+    <%= yield %>
+  </body>
+</html>
